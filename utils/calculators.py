@@ -11,9 +11,22 @@ def explementary_horizontal_circle_average(face1_reading, face2_reading):
     return exp_vcr_average
 
 
-def reduce_horizontal_angle(average1, average2):
+def reduced_angle_horizontal_angle(average1, average2):
     reduced_angle = average2 - average1
     return reduced_angle
+
+
+# returns corrected error
+def calculate_total_angle_error(*reduced):
+    hcr_error = -sum(reduced) - 360
+    return hcr_error
+
+
+# def distribute_error_to_reduced(hcr_error, *reduced):
+#     distributed_error = hcr_error / reduced.count()
+#     for i in reduced:
+#         corrected_angle = reduced[i] + distributed_error
+#     return corrected_angle
 
 
 def vertical_circle_average(face1_reading, face2_reading):
