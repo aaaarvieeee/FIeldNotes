@@ -1,3 +1,6 @@
+import math
+
+
 def horizontal_circle_average(face1_reading, face2_reading):
     hcr_average = (face1_reading + (face2_reading - 180)) / 2
     return hcr_average
@@ -32,3 +35,20 @@ def calculate_total_angle_error(*reduced):
 def vertical_circle_average(face1_reading, face2_reading):
     vcr_average = (face1_reading + (360 - face2_reading)) / 2
     return vcr_average
+
+
+def calculate_vertical_distance(slope_distance, vcr_average):
+    vertical_distance = slope_distance * math.cos(vcr_average)
+    return vertical_distance
+
+
+def calculate_difference_elevation(
+    vertical_distance, height_of_target, height_of_instrument
+):
+    difference_elev = height_of_instrument + vertical_distance - height_of_target
+    return difference_elev
+
+
+def calculate_horizontal_distance_zenith(vcr_average, slope_distance):
+    horizontal_distance = slope_distance * math.sin(vcr_average)
+    return horizontal_distance
